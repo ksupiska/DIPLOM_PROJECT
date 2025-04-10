@@ -10,6 +10,12 @@ const port = 3001; // не 5173, чтобы не мешать Vite
 app.use(cors());
 app.use(express.json());
 
+app.use((req, res, next) => {
+  console.log(`${req.method} ${req.url}`);
+  next();
+});
+
+
 // Подключение к базе PostgreSQL
 const pool = new Pool({
   user: "postgres",
@@ -45,16 +51,29 @@ app.post("/personalities", async (req, res) => {
 });
 
 // Получить всех персонажей
-app.get('/personalities', async (req, res) => {
+app.get("/personalities", async (req, res) => {
   try {
-    const result = await pool.query('SELECT * FROM human ORDER BY id');
+    const result = await pool.query("SELECT * FROM human ORDER BY id");
     res.json(result.rows);
   } catch (err) {
-    console.error('Ошибка при получении персонажей:', err);
-    res.status(500).send('Ошибка сервера');
+    console.error("Ошибка при получении персонажей:", err);
+    res.status(500).send("Ошибка сервера");
   }
 });
 
+// Удалить персонажа по ID
+app.delete("/personalities/:id", async (req, res) => {
+  const { id } = req.params;
+  console.log("ID для удаления:", id); // должно выводиться
+
+  try {
+    await pool.query("DELETE FROM human WHERE id = $1", [id]);
+    res.status(200).send("Персонаж удалён");
+  } catch (error) {
+    console.error("Ошибка при удалении:", error);
+    res.status(500).send("Ошибка при удалении");
+  }
+});
 
 // Запуск сервера
 app.listen(port, () => {

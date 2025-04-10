@@ -41,6 +41,15 @@ const FamilyTree = () => {
     }
   };
 
+  const handleDelete = async (id: number) => {
+    try {
+      await axios.delete(`http://localhost:3001/personalities/${id}`);
+      fetchPersonalities(); // обновляем список после удаления
+    } catch (error) {
+      console.error('Ошибка при удалении:', error);
+    }
+  };
+
   useEffect(() => {
     fetchPersonalities();
   }, []);
@@ -75,9 +84,10 @@ const FamilyTree = () => {
 
       <h2>Список персонажей</h2>
       <ul>
-        {personalities.map((p) => (
-          <li key={p.id}>
-            {p.name} {p.surname} — {p.sex}
+        {personalities.map((member) => (
+          <li key={member.id}>
+            {member.name} — {member.surname} — {member.sex}
+            <button onClick={() => handleDelete(member.id)} style={{ marginLeft: '1rem' }}>Удалить</button>
           </li>
         ))}
       </ul>
