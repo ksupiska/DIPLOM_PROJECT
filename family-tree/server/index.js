@@ -15,7 +15,6 @@ app.use((req, res, next) => {
   next();
 });
 
-
 // Подключение к базе PostgreSQL
 const pool = new Pool({
   user: "postgres",
@@ -32,7 +31,15 @@ app.get("/", (req, res) => {
 
 // Добавить персонажа
 app.post("/personalities", async (req, res) => {
-  const { name, surname, sex } = req.body;
+  const {
+    name,
+    surname,
+    sex,
+    city_living,
+    state_of_life,
+    cause_of_death,
+    kind,
+  } = req.body;
 
   if (!name || !surname || !sex) {
     return res.status(400).send("Не хватает данных");
@@ -40,8 +47,8 @@ app.post("/personalities", async (req, res) => {
 
   try {
     await pool.query(
-      "INSERT INTO human (name, surname, sex) VALUES ($1, $2, $3)",
-      [name, surname, sex]
+      "INSERT INTO human (name, surname, sex, city_living, state_of_life, cause_of_death, kind) VALUES ($1, $2, $3, $4, $5, $6, $7)",
+      [name, surname, sex, city_living, state_of_life, cause_of_death, kind]
     );
     res.status(201).send("Персонаж добавлен!");
   } catch (err) {
