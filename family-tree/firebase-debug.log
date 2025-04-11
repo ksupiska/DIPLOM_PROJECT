@@ -1,0 +1,100 @@
+[debug] [2025-04-10T20:24:42.996Z] ----------------------------------------------------------------------
+[debug] [2025-04-10T20:24:43.000Z] Command:       D:\node.exe C:\Users\kspiska\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2025-04-10T20:24:43.000Z] CLI Version:   14.1.0
+[debug] [2025-04-10T20:24:43.000Z] Platform:      win32
+[debug] [2025-04-10T20:24:43.000Z] Node Version:  v22.13.1
+[debug] [2025-04-10T20:24:43.001Z] Time:          Thu Apr 10 2025 23:24:43 GMT+0300 (Москва, стандартное время)
+[debug] [2025-04-10T20:24:43.001Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-04-10T20:24:43.009Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-04-10T20:24:43.009Z] > authorizing via signed-in user (pishikksenia@gmail.com)
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  C:\Users\kspiska\Desktop\DIPLOM\family-tree
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] but for now we'll just set up a default project.
+[info] 
+[debug] [2025-04-10T20:24:53.274Z] Checked if tokens are valid: true, expires at: 1744319674257
+[debug] [2025-04-10T20:24:53.275Z] Checked if tokens are valid: true, expires at: 1744319674257
+[debug] [2025-04-10T20:24:53.276Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=100
+[debug] [2025-04-10T20:24:53.763Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2025-04-10T20:24:53.763Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[info] i  Using project the-sims-tree (the-sims-tree) 
+[info] 
+=== Dataconnect Setup
+[debug] [2025-04-10T20:24:57.281Z] Checked if tokens are valid: true, expires at: 1744319674257
+[debug] [2025-04-10T20:24:57.282Z] Checked if tokens are valid: true, expires at: 1744319674257
+[debug] [2025-04-10T20:24:57.282Z] >>> [apiv2][query] GET https://cloudbilling.googleapis.com/v1/projects/the-sims-tree/billingInfo [none]
+[debug] [2025-04-10T20:24:58.066Z] <<< [apiv2][status] GET https://cloudbilling.googleapis.com/v1/projects/the-sims-tree/billingInfo 200
+[debug] [2025-04-10T20:24:58.066Z] <<< [apiv2][body] GET https://cloudbilling.googleapis.com/v1/projects/the-sims-tree/billingInfo {"name":"projects/the-sims-tree/billingInfo","projectId":"the-sims-tree","billingAccountName":"","billingEnabled":false}
+[info] i  dataconnect: ensuring required API sqladmin.googleapis.com is enabled... 
+[debug] [2025-04-10T20:24:58.067Z] Checked if tokens are valid: true, expires at: 1744319674257
+[debug] [2025-04-10T20:24:58.068Z] Checked if tokens are valid: true, expires at: 1744319674257
+[debug] [2025-04-10T20:24:58.068Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/the-sims-tree/services/sqladmin.googleapis.com [none]
+[debug] [2025-04-10T20:24:58.068Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/the-sims-tree/services/sqladmin.googleapis.com x-goog-quota-user=projects/the-sims-tree
+[debug] [2025-04-10T20:24:59.042Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/the-sims-tree/services/sqladmin.googleapis.com 200
+[debug] [2025-04-10T20:24:59.042Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/the-sims-tree/services/sqladmin.googleapis.com [omitted]
+[info] +  dataconnect: required API sqladmin.googleapis.com is enabled 
+[info] i  dataconnect\dataconnect.yaml is unchanged 
+[info] i  dataconnect\schema\schema.gql is unchanged 
+[info] +  Wrote dataconnect\connector\connector.yaml 
+[info] i  dataconnect\connector\queries.gql is unchanged 
+[info] i  dataconnect\connector\mutations.gql is unchanged 
+[info] +  Detected WEB app in directory C:\Users\kspiska\Desktop\DIPLOM\family-tree 
+[info] i  Detected react app. Enabling react generated SDKs. 
+[info] i  Writing your new SDK configuration to C:\Users\kspiska\Desktop\DIPLOM\family-tree\dataconnect\connector/connector.yaml 
+[info] +  Wrote dataconnect\connector\connector.yaml 
+[debug] [2025-04-10T20:25:12.621Z] defaultcredentials: writing to file C:\Users\kspiska\AppData\Roaming\firebase\pishikksenia_gmail_com_application_default_credentials.json
+[debug] [2025-04-10T20:25:12.623Z] Setting GAC to C:\Users\kspiska\AppData\Roaming\firebase\pishikksenia_gmail_com_application_default_credentials.json {"metadata":{"emulator":{"name":"dataconnect"},"message":"Setting GAC to C:\\Users\\kspiska\\AppData\\Roaming\\firebase\\pishikksenia_gmail_com_application_default_credentials.json"}}
+[info] I0410 23:25:12.700798   15752 codegen.go:82] [connector "default" javascriptSdk] Generating sources into "C:\\Users\\kspiska\\Desktop\\DIPLOM\\family-tree\\dataconnect-generated\\js\\default-connector"
+I0410 23:25:12.738261   15752 generate.go:40] Generated all sources. Writing them to disk...
+I0410 23:25:12.749916   15752 collector.go:107] connector "default" javascriptSdk wrote into "C:\\Users\\kspiska\\Desktop\\DIPLOM\\family-tree\\dataconnect-generated\\js\\default-connector"
+Generated sources: index.d.ts [246B] react\index.cjs.js [0B] angular\index.cjs.js [1B] esm\index.esm.js [114B] index.cjs.js [149B] react\esm\package.json [17B] angular\esm\index.esm.js [0B] esm\package.json [17B] package.json [1110B] react\index.d.ts [228B] react\esm\index.esm.js [0B] react\README.md [5417B] angular\package.json [661B] angular\esm\package.json [17B] README.md [2774B] react\package.json [468B] angular\index.d.ts [0B] 
+I0410 23:25:12.764996   15752 installsdk.go:80] Running command: D:\npm.cmd install file:dataconnect-generated\js\default-connector
+
+[info] i  Generated SDK code for default 
+[info] i  Visit https://firebase.google.com/docs/data-connect/web-sdk#react for more information on how to set up React Generated SDKs for Firebase Data Connect 
+[info] i  Run `npm i --save @angular/fire @tanstack-query-firebase/angular @tanstack/angular-query-experimental` to install angular sdk dependencies.
+Visit https://github.com/invertase/tanstack-query-firebase/tree/main/packages/angular for more information on how to set up Angular Generated SDKs for Firebase Data Connect 
+[info] +  If you'd like to add more generated SDKs to your app your later, run firebase init dataconnect:sdk again 
+[info] i  If you'd like to provision a CloudSQL Postgres instance on the Firebase Data Connect no-cost trial:
+1. Please upgrade to the pay-as-you-go (Blaze) billing plan. Visit the following page:
+     https://console.firebase.google.com/project/the-sims-tree/usage/details
+2. Run firebase init dataconnect again to configure the Cloud SQL instance.
+3. Run firebase deploy --only dataconnect to deploy your Data Connect service. 
+[info] 
+=== Firestore Setup
+[debug] [2025-04-10T20:25:14.757Z] Checked if tokens are valid: true, expires at: 1744319674257
+[debug] [2025-04-10T20:25:14.757Z] Checked if tokens are valid: true, expires at: 1744319674257
+[debug] [2025-04-10T20:25:14.757Z] >>> [apiv2][query] GET https://serviceusage.googleapis.com/v1/projects/the-sims-tree/services/firestore.googleapis.com [none]
+[debug] [2025-04-10T20:25:14.757Z] >>> [apiv2][(partial)header] GET https://serviceusage.googleapis.com/v1/projects/the-sims-tree/services/firestore.googleapis.com x-goog-quota-user=projects/the-sims-tree
+[debug] [2025-04-10T20:25:15.732Z] <<< [apiv2][status] GET https://serviceusage.googleapis.com/v1/projects/the-sims-tree/services/firestore.googleapis.com 200
+[debug] [2025-04-10T20:25:15.732Z] <<< [apiv2][body] GET https://serviceusage.googleapis.com/v1/projects/the-sims-tree/services/firestore.googleapis.com [omitted]
+[debug] [2025-04-10T20:25:15.732Z] Checked if tokens are valid: true, expires at: 1744319674257
+[debug] [2025-04-10T20:25:15.733Z] Checked if tokens are valid: true, expires at: 1744319674257
+[debug] [2025-04-10T20:25:15.733Z] >>> [apiv2][query] GET https://firestore.googleapis.com/v1/projects/the-sims-tree/databases/(default) [none]
+[debug] [2025-04-10T20:25:15.917Z] <<< [apiv2][status] GET https://firestore.googleapis.com/v1/projects/the-sims-tree/databases/(default) 404
+[debug] [2025-04-10T20:25:15.917Z] <<< [apiv2][body] GET https://firestore.googleapis.com/v1/projects/the-sims-tree/databases/(default) {"error":{"code":404,"message":"Project 'the-sims-tree' or database '(default)' does not exist.","status":"NOT_FOUND"}}
+[debug] [2025-04-10T20:25:15.917Z] error getting database type:  Request to https://firestore.googleapis.com/v1/projects/the-sims-tree/databases/(default) had HTTP Error: 404, Project 'the-sims-tree' or database '(default)' does not exist. {"name":"FirebaseError","children":[],"context":{"body":{"error":{"code":404,"message":"Project 'the-sims-tree' or database '(default)' does not exist.","status":"NOT_FOUND"}},"response":{"statusCode":404}},"exit":1,"message":"Request to https://firestore.googleapis.com/v1/projects/the-sims-tree/databases/(default) had HTTP Error: 404, Project 'the-sims-tree' or database '(default)' does not exist.","status":404}
+[info] (default) does not exist in project the-sims-tree.
+[debug] [2025-04-10T20:25:15.918Z] database_type: DATABASE_DOES_NOT_EXIST
+[debug] [2025-04-10T20:25:30.450Z] Checked if tokens are valid: true, expires at: 1744319674257
+[debug] [2025-04-10T20:25:30.451Z] Checked if tokens are valid: true, expires at: 1744319674257
+[debug] [2025-04-10T20:25:30.451Z] >>> [apiv2][query] GET https://firestore.googleapis.com/v1/projects/the-sims-tree/databases/ksup [none]
+[debug] [2025-04-10T20:25:30.694Z] <<< [apiv2][status] GET https://firestore.googleapis.com/v1/projects/the-sims-tree/databases/ksup 404
+[debug] [2025-04-10T20:25:30.695Z] <<< [apiv2][body] GET https://firestore.googleapis.com/v1/projects/the-sims-tree/databases/ksup {"error":{"code":404,"message":"Project 'the-sims-tree' or database 'ksup' does not exist.","status":"NOT_FOUND"}}
+[debug] [2025-04-10T20:25:30.695Z] error getting database type:  Request to https://firestore.googleapis.com/v1/projects/the-sims-tree/databases/ksup had HTTP Error: 404, Project 'the-sims-tree' or database 'ksup' does not exist. {"name":"FirebaseError","children":[],"context":{"body":{"error":{"code":404,"message":"Project 'the-sims-tree' or database 'ksup' does not exist.","status":"NOT_FOUND"}},"response":{"statusCode":404}},"exit":1,"message":"Request to https://firestore.googleapis.com/v1/projects/the-sims-tree/databases/ksup had HTTP Error: 404, Project 'the-sims-tree' or database 'ksup' does not exist.","status":404}
+[info] ksup does not exist in project the-sims-tree.
+[debug] [2025-04-10T20:25:30.695Z] database_type: DATABASE_DOES_NOT_EXIST

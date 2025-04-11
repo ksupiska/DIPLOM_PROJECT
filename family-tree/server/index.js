@@ -1,7 +1,10 @@
-// server/index.js
 const express = require("express");
 const cors = require("cors");
 const { Pool } = require("pg");
+
+const multer = require('multer');
+const path = require('path');
+const fs = require('fs');
 
 const app = express();
 const port = 3001; // не 5173, чтобы не мешать Vite
@@ -9,11 +12,20 @@ const port = 3001; // не 5173, чтобы не мешать Vite
 // Разрешаем CORS для клиента
 app.use(cors());
 app.use(express.json());
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
-app.use((req, res, next) => {
-  console.log(`${req.method} ${req.url}`);
-  next();
+const uploadDir = path.join(__dirname, 'uploads');
+if (!fs.existsSync(uploadDir)) {
+  fs.mkdirSync(uploadDir);
+}
+
+// Конфигурация Multer
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => cb(null, 'uploads'),
+  filename: (req, file, cb) => cb(null, Date.now() + '-' + file.originalname),
 });
+const upload = multer({ storage });
+
 
 // Подключение к базе PostgreSQL
 const pool = new Pool({
@@ -30,7 +42,7 @@ app.get("/", (req, res) => {
 });
 
 // Добавить персонажа
-app.post("/personalities", async (req, res) => {
+app.post("/personalities", upload.single('avatar'), async (req, res) => {
   const {
     name,
     surname,
@@ -41,14 +53,15 @@ app.post("/personalities", async (req, res) => {
     kind,
   } = req.body;
 
+  const avatarPath = req.file ? `/uploads/${req.file.filename}` : null;
   if (!name || !surname || !sex) {
     return res.status(400).send("Не хватает данных");
   }
 
   try {
     await pool.query(
-      "INSERT INTO human (name, surname, sex, city_living, state_of_life, cause_of_death, kind) VALUES ($1, $2, $3, $4, $5, $6, $7)",
-      [name, surname, sex, city_living, state_of_life, cause_of_death, kind]
+      "INSERT INTO human (name, surname, sex, city_living, state_of_life, cause_of_death, kind, avatar) VALUES ($1, $2, $3, $4, $5, $6, $7, $8)",
+      [name, surname, sex, city_living, state_of_life, cause_of_death, kind, avatarPath]
     );
     res.status(201).send("Персонаж добавлен!");
   } catch (err) {
@@ -84,5 +97,5 @@ app.delete("/personalities/:id", async (req, res) => {
 
 // Запуск сервера
 app.listen(port, () => {
-  console.log(`Сервер работает на http://localhost:${port}`);
+  console.log('Сервер работает на http://localhost:${port}');
 });
